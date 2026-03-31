@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Your name">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="../static/script.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body onload="addYear()">
+  <div class="container">
+    <header class="header">
+    </header>
+    <nav class="nav_bar">
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="checkout.html">Checkout</a>
+      <button id="hamburger" onclick="toggleNav()">☰</button>
+    </nav>
+
+    <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+
+    <main class="main">
+      <h1>Buy Tickets</h1>
+
+      <h2>Ticket Prices</h2>
+      <table>
+        <tr>
+          <th>Ticket Type</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>Adult</td>
+          <td>General admission for ages 18 and over. Under 18 free of charge.</td>
+          <td>$18</td>
+        </tr>
+        <tr>
+          <td>Student</td>
+          <td>Student ID required</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>Member</td>
+          <td>Member ID required</td>
+          <td>$15</td>
+        </tr>
+      </table>
+
+      <h2>April 2026 Schedule</h2>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+          <th>Time</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>April 5, 2026</td>
+          <td>Digital Dreams: Opening Night</td>
+          <td>6:00 PM – 9:00 PM</td>
+          <td><button onclick="showForm('April 5, 2026')">Buy Now</button></td>
+        </tr>
+        <tr>
+          <td>April 12, 2026</td>
+          <td>Code & Canvas: Artist Talk</td>
+          <td>2:00 PM – 4:00 PM</td>
+          <td><button onclick="showForm('April 12, 2026')">Buy Now</button></td>
+        </tr>
+        <tr>
+          <td>April 19, 2026</td>
+          <td>Interactive Lab: Family Day</td>
+          <td>10:00 AM – 3:00 PM</td>
+          <td><button onclick="showForm('April 19, 2026')">Buy Now</button></td>
+        </tr>
+        <tr>
+          <td>April 26, 2026</td>
+          <td>AI & Creativity: Panel Discussion</td>
+          <td>5:00 PM – 7:00 PM</td>
+          <td><button onclick="showForm('April 26, 2026')">Buy Now</button></td>
+        </tr>
+      </table>
+
+      <div id="purchaseForm">
+        <h2>Purchase Tickets</h2>
+        <p>Selected Date: <span id="selectedDate"></span></p>
+
+        <label for="buyName">Name: (required)</label><br>
+        <input type="text" id="buyName" name="buyName" required><br><br>
+
+        <label for="buyEmail">Email: (required)</label><br>
+        <input type="email" id="buyEmail" name="buyEmail" required><br><br>
+
+        <label for="buyQuantity">Number of Tickets: (required)</label><br>
+        <input type="number" id="buyQuantity" name="buyQuantity" required><br><br>
+
+        <label for="buyDate">Selected Date:</label><br>
+        <input type="text" id="buyDate" name="buyDate" readonly><br><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <p id="copyYear"></p>
+    </footer>
+  </div>
+</body>
+</html>

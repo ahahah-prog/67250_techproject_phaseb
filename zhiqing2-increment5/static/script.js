@@ -1,0 +1,138 @@
+// var x = 5;
+// var y = 7;
+// var z = x + y;
+// console.log(z); 
+
+// var A = "Hello ";
+// var B = "world!";
+// var C = A + B;
+// console.log(C); 
+
+// function sumnPrint(x1, x2) {
+//     var result = x1 + x2;
+//     console.log(result);
+// }
+
+// sumnPrint(x, y); 
+// sumnPrint(A, B); 
+
+
+// if (C.length>z) {
+//     console.log(C)
+//     if (C.length<z) {
+//         console.log(z)
+//     }
+// } else {
+//     print ("good job!")
+// }
+
+// var L1 = ["Watermelon", "Pineapple", "Pear", "Banana"];
+// var L2 = ["Apple", "Banana", "Kiwi", "Orange"];
+
+// function findTheBanana(arr) {
+//     for (var i = 0; i < arr.length; i++) {
+//         if (arr[i] === "Banana") {
+//             alert("Banana is found!");
+//         }
+//     }
+// }
+
+// findTheBanana(L1);
+// findTheBanana(L2);
+
+// function findTheBanana(arr) {
+//     arr.forEach(function(item) {
+//         if (item === "Banana") {
+//             alert("Banana is found!");
+//         }
+//     });
+// }
+
+// findTheBanana(L1);
+// findTheBanana(L2);
+
+
+var now = new Date();
+var hour = now.getHours();
+
+function greeting(h) {
+    var greetingElement = document.getElementById("greeting");
+
+    if (greetingElement) {  
+        if (h < 5 || h >= 20) {
+            greetingElement.innerHTML = "Good night! Welcome to MonoMuse.";
+        } else if (h < 12) {
+            greetingElement.innerHTML = "Good morning! Welcome to MonoMuse.";
+        } else if (h < 18) {
+            greetingElement.innerHTML = "Good afternoon! Welcome to MonoMuse.";
+        } else {
+            greetingElement.innerHTML = "Good evening! Welcome to MonoMuse.";
+        }
+    }
+}
+
+if (window.location.pathname.endsWith("index.html") || 
+    window.location.pathname === "/") {
+    greeting(hour);
+}
+
+function addYear() {
+    document.getElementById("copyYear").innerHTML = 
+        "© " + new Date().getFullYear() + " MonoMuse. All rights reserved.";
+}
+
+function ActiveNav() {
+    const navLinks = document.querySelectorAll('.nav_bar a');
+    navLinks.forEach(link => {
+        if (window.location.pathname.endsWith(link.getAttribute('href').replace('../', ''))) {
+            link.classList.add("active");
+        }
+    });
+}
+
+ActiveNav();
+
+if (document.getElementById("readMore")) {
+    $("#readMore").click(function() {
+        $("#longIntro").show();  
+        $("#readLess").show();  
+        $("#readMore").hide();   
+    });
+
+    $("#readLess").click(function() {
+        $("#longIntro").hide();  
+        $("#readLess").hide();  
+        $("#readMore").show();  
+    });
+}
+
+function showForm(date) {
+    document.getElementById("selectedDate").innerHTML = date;
+    document.getElementById("buyDate").value = date;
+    document.getElementById("purchaseForm").style.display = "block";
+}
+
+function submitForm() {
+    alert("Redirecting to payment system.");
+}
+
+
+function toggleNav() {
+    var nav = document.querySelector(".nav_bar");
+    nav.classList.toggle("responsive");
+}
+
+
+if (document.getElementById("map")) {
+    var map = L.map('map').setView([41.8796, -87.6237], 15);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    L.marker([41.8796, -87.6237])
+        .addTo(map)
+        .bindPopup("<b>Art Institute of Chicago</b><br>111 S Michigan Ave, Chicago, IL")
+        .openPopup();
+}
