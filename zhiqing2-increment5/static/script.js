@@ -278,3 +278,50 @@ function startSlideshow() {
 if (document.getElementById("gallery")) {
   startSlideshow();
 }
+
+//Debugging: purchase form on tickets page not showing warning when fields are empty 
+// & link to checkout page for better ux sense
+function submitForm() {
+  var name = document.getElementById("buyName");
+  var email = document.getElementById("buyEmail");
+  var qty = document.getElementById("buyQuantity");
+  var date = document.getElementById("buyDate");
+
+  if (!name.value || !email.value || !qty.value || !date.value) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  sessionStorage.setItem("prefillDate", date.value);
+  sessionStorage.setItem("prefillEmail", email.value);
+  sessionStorage.setItem("prefillQty", qty.value);
+
+  window.location.href = "checkout.html";
+}
+
+//prefill function
+function prefillCheckout() {
+  if (document.getElementById("checkoutForm")) {
+    var date = sessionStorage.getItem("prefillDate");
+    var email = sessionStorage.getItem("prefillEmail");
+    var qty = sessionStorage.getItem("prefillQty");
+
+    if (date) document.getElementById("visitDate").value = date;
+    if (email) document.getElementById("email").value = email;
+    if (qty) document.getElementById("ticketQty").value = qty;
+
+    if (qty) calculatePrice();
+
+    sessionStorage.removeItem("prefillDate");
+    sessionStorage.removeItem("prefillEmail");
+    sessionStorage.removeItem("prefillQty");
+  }
+}
+
+prefillCheckout();
