@@ -2,51 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Your name">
   <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
   <meta name="description" content="MonoMuse website redesign project">
-  <title>MonoMuse</title>
+  <title>MonoMuse—Checkout</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
   <script src="../static/script.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
 </head>
 <body onload="addYear()">
   <div class="container">
-  <header class="header">
-  </header>
-  <nav class="nav_bar">
-    <a href="../index.html">Home</a>
-    <a href="explore.html">Explore</a>
-    <a href="exhibitions.html">Exhibitions</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="checkout.html">Checkout</a>
-    <button id="hamburger" onclick="toggleNav()">☰</button>
-  </nav>
-  <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+    <header class="header"></header>
+    <nav class="nav_bar">
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="checkout.html">Checkout</a>
+      <button id="hamburger" onclick="toggleNav()">☰</button>
+    </nav>
 
-  <main class="main">
-    <h1>Checkout</h1>
-    <form>
-      <label for="name">Name: (required)</label><br>
-      <input type="text" id="name" name="name" required><br><br>
+    <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
 
-      <label for="email">Email: (required)</label><br>
-      <input type="email" id="email" name="email" required><br><br>
+    <main class="main">
+      <h1>Checkout</h1>
 
-      <label for="quantity">Ticket Quantity: (required)</label><br>
-      <input type="number" id="quantity" name="quantity" required><br><br>
+      <form id="checkoutForm">
 
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+        <div class="form-group">
+          <label for="visitDate">Visit Date (required)</label>
+          <input type="date" id="visitDate" name="visitDate" required>
+          <span class="error" id="visitDateError"></span>
+        </div>
 
-  <footer class="footer">
-    <p id="copyYear"></p>
-  </footer>
+        <div class="form-group">
+          <label for="ticketType">Ticket Type (required)</label>
+          <select id="ticketType" name="ticketType" required onchange="calculatePrice()">
+            <option value="">-- Select Ticket Type --</option>
+            <option value="general">General — $18</option>
+            <option value="student">Student — $10</option>
+            <option value="member">Member — $15</option>
+          </select>
+          <span class="error" id="ticketTypeError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="ticketQty">Ticket Quantity (1–10, required)</label>
+          <input type="number" id="ticketQty" name="ticketQty" min="1" max="10" required oninput="calculatePrice()" onchange="calculatePrice()">
+          <span class="error" id="ticketQtyError"></span>
+        </div>
+
+        <div class="form-group">
+          <p>Total Price: <strong id="totalPrice">$0.00</strong></p>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email (required)</label>
+          <input type="email" id="email" name="email" required>
+          <span class="error" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="zipCode">Zip Code (optional)</label>
+          <input type="text" id="zipCode" name="zipCode" maxlength="5" placeholder="5-digit zip code">
+          <span class="error" id="zipCodeError"></span>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="mailingList" name="mailingList">
+            Join our mailing list
+          </label>
+        </div>
+
+        <div class="form-group">
+          <button type="button" onclick="placeOrder()">Place Order</button>
+        </div>
+
+      </form>
+    </main>
+
+    <footer class="footer">
+      <p id="copyYear"></p>
+    </footer>
   </div>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Your name">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse—Confirmation</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <script src="../static/script.js" defer></script>
+</head>
+<body onload="addYear(); loadConfirmation();">
+  <div class="container">
+    <header class="header"></header>
+    <nav class="nav_bar">
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="checkout.html">Checkout</a>
+      <button id="hamburger" onclick="toggleNav()">☰</button>
+    </nav>
+
+    <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+
+    <main class="main">
+      <h1>Order Confirmed!</h1>
+      <p>Thank you for your purchase. Here is your order summary:</p>
+
+      <table id="confirmationTable">
+        <tr><th>Detail</th><th>Info</th></tr>
+        <tr><td>Visit Date</td><td id="confDate"></td></tr>
+        <tr><td>Ticket Type</td><td id="confType"></td></tr>
+        <tr><td>Quantity</td><td id="confQty"></td></tr>
+        <tr><td>Email</td><td id="confEmail"></td></tr>
+        <tr><td><strong>Total</strong></td><td><strong id="confTotal"></strong></td></tr>
+      </table>
+
+      <p>A confirmation email will be sent to your provided address. We look forward to seeing you at MonoMuse!</p>
+      <a href="../index.html">Return to Home</a>
+    </main>
+
+    <footer class="footer">
+      <p id="copyYear"></p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -7,7 +7,10 @@
     <meta name="author" content="Your name">
     <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
     <meta name="description" content="MonoMuse website redesign project">
-    <title>MonoMuse</title>
+    <title>MonoMuse-Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/style.css">
     <script src="./static/script.js" defer></script>
     <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
@@ -27,7 +30,7 @@
   </nav>
   <img id="logo" src="static/monomuselogo.png" alt="MonoMuse Museum Logo">
 
-  <main class=”main> 
+  <main class="main">
     <h2 id="greeting">Welcome to the MonoMuse Museum</h2>
 
     <p>
@@ -60,6 +63,36 @@
 
     <button id="readMore">Read More</button>
     <button id="readLess">Read Less</button>
+
+    <h2>Gallery</h2>
+    <div id="gallery">
+      <button id="prevBtn" onclick="changeSlide(-1)">&#10094;</button>
+      <img id="galleryImg" src="static/gallery1.jpg" alt="Museum gallery image 1">
+      <button id="nextBtn" onclick="changeSlide(1)">&#10095;</button>
+      <p id="galleryCaption">Image 1 of 3</p>
+    </div>
+
+    <h2>Hours of Operation</h2>
+    <table id="hoursTable">
+      <tr>
+        <th>Day</th>
+        <th>Hours</th>
+      </tr>
+      <tr>
+        <td>Tuesday – Friday</td>
+        <td>10:00 AM – 6:00 PM</td>
+      </tr>
+      <tr>
+        <td>Saturday – Sunday</td>
+        <td>10:00 AM – 8:00 PM</td>
+      </tr>
+      <tr>
+        <td>Monday</td>
+        <td>Closed</td>
+      </tr>
+    </table>
+    </main>
+        
   </div>
 
   <footer class="footer">

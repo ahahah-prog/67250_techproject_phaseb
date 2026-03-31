@@ -6,14 +6,16 @@
   <meta name="author" content="Your name">
   <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
   <meta name="description" content="MonoMuse website redesign project">
-  <title>MonoMuse</title>
+  <title>MonoMuse-Explore</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="../static/script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 <body onload="addYear()">
@@ -28,6 +30,8 @@
     <a href="checkout.html">Checkout</a>
     <button id="hamburger" onclick="toggleNav()">☰</button>
   </nav>
+
+  <!--Image from https://www.tripadvisor.com/Attraction_Review-g35805-d103239-Reviews-The_Art_Institute_of_Chicago-Chicago_Illinois.html-->
   <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
 
   <main class="main">
@@ -56,6 +60,7 @@
       <li>2016: MonoMuse opens its doors with its first exhibition on digital storytelling.</li>
     </ul>
 
+    <!-- Youtube video from: https://www.youtube.com/watch?v=XfeCeRGASNY-->
     <h2>Virtual Tour</h2>
     <div class="iframe-container">
       <iframe 
@@ -71,11 +76,10 @@
     <div id="map">
     </div>
   </main>
-  </div>
-
   <footer class="footer">
     <p id="copyYear"></p>
   </footer> 
   </div>
+
 </body>
 </html>
